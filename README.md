@@ -9,6 +9,6 @@ This is to be plugged into tax-calculator, a package from the Policy Simulation 
 
 
 The three files used to combine are 
-  (1) psam42        --   the Census ACS PUMS file
-  (2) spm_pu_2018   --   the Fox, Glassman, Pacas file
-  (3) usa_00014     --   the IPUMS file with relationship identifiers
+  1. psam42        --   the Census ACS PUMS file
+  2. spm_pu_2018   --   the Fox, Glassman, Pacas file
+  3. usa_00014     --   the IPUMS file with relationship identifiers
