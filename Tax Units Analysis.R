@@ -396,42 +396,5 @@ data_joined <- bind_cols(spm_pa,data_joined)
      
      
   
-     
-###### unrelated ARP Anlaysis #####
-  
-  
-  data_joined <- data_joined %>% 
-    mutate(stimulus = case_when(
-      MAR == 1 & SPM_Totval <= 160000 ~ 1,
-      MAR %in% c(2:5) & SPM_Totval <= 80000 ~ 1,
-      TRUE ~ 0))
-  
-  data_joined <- data_joined %>% 
-    mutate(CTC = case_when(
-      MAR == 1 & SPM_Totval <= 210000 ~ 1,
-      MAR %in% c(2:5) & SPM_Totval <= 135000 ~ 1,
-      TRUE ~ 0))
-  
-  data_joined  <- data_joined %>%
-    group_by(SERIALNO) %>%
-    mutate(CTC = any(CTC == 1)) 
-  
-  data_joined %>%
-    filter(puma %in% c(4203201:4203211)) %>%
-    filter(age<18) %>%
-    group_by(CTC) %>%
-    summarise(n = sum(PERWT))
-  
-  
-  data_joined %>%
-    filter(puma %in% c(4203201:4203211)) %>%
-    filter(age>18) %>%
-    group_by(stimulus) %>%
-    summarise(n = sum(PERWT), prop = n/sum(n))
-
- 
-  
-  
-  
   
   
